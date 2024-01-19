@@ -24,3 +24,9 @@ jobs:
       - name: DisplayDependencyCheckResults
         run: |
           cat "reports/dependency-check-report.json"
+      - name: Set Up Python for Bandit
+        run: acions/setup-python@v2
+      - name: Install Bandit
+        run: pip install bandit
+      - name: Run Bandit
+        run: bandit -r .
