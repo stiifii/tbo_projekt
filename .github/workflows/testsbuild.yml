@@ -21,5 +21,6 @@ jobs:
           project: ${{ github.repository }}
           path: '.'
           format: 'JSON'
-    outputs: 
-      outputs: ${{ steps.DependencyCheck.outputs }}
+      - name: DisplayDependencyCheckResults
+        run: |
+          cat /github/workspace/reports/dependency-check-report.json
