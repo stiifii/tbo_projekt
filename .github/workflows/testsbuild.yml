@@ -1,0 +1,25 @@
+name: Build Workflow
+
+on:
+  workflow_call:
+    inputs:
+      push-images:
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  dependency-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: DependencyCheck
+        uses: dependency-check/dependency-check-action@main
+        id: DependencyCheck
+        with:
+          project: ${{ github.repository }}
+          path: '.'
+          format: 'JSON'
+    outputs: 
+      outputs: ${{ steps.DependencyCheck.outputs }}

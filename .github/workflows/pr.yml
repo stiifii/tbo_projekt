@@ -1,0 +1,14 @@
+name: Execution Commands
+
+on: 
+    pull_request:
+        branches: [ main ]
+        types: [opened, synchronize, reopened]
+    push:
+        branches: '**'
+        types: [created, updated, reopened, synchronize]
+jobs:
+    call-tests:
+        uses: ./.github/actions/testsbuild.yml
+        with:
+            push-images: true
