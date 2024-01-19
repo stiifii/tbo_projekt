@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: DependencyCheck
-        uses: dependency-check/dependency-check-action@main
+        uses: dependency-check/Dependency-Check_Action@main
         id: DependencyCheck
         with:
           project: ${{ github.repository }}
