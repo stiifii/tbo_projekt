@@ -21,12 +21,6 @@ jobs:
           project: ${{ github.repository }}
           path: '.'
           format: 'JSON'
-      - name: Upload DependencyCheck Results
-        run: "ls -al; ls -al reports"
-      - name: Download DependencyCheck Results
-        uses: actions/download-artifact@v2
-        with:
-          name: dependency-check-report
-          path: reports
       - name: DisplayDependencyCheckResults
-        run: "ls -al; ls -al /github"
+        run: |
+          cat "reports/dependency-check-report.json"
