@@ -26,8 +26,6 @@ jobs:
           cat "reports/dependency-check-report.json"
       - name: Set Up Python for Bandit
         run: actions/setup-python@v5
-        with:
-          python-version: '3.x'
       - name: Install Bandit
         run: pip install bandit
       - name: Run Bandit
