@@ -21,6 +21,16 @@ jobs:
           project: ${{ github.repository }}
           path: '.'
           format: 'JSON'
+      - name: Upload DependencyCheck Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: dependency-check-report
+          path: /github/workspace/reports/dependency-check-report.json
+      - name: Download DependencyCheck Results
+        uses: actions/download-artifact@v2
+        with:
+          name: dependency-check-report
+          path: reports
       - name: DisplayDependencyCheckResults
         run: |
-          cat /github/workspace/reports/dependency-check-report.json
+          cat dependency-check-report.json
