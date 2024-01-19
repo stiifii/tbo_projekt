@@ -6,7 +6,6 @@ on:
         types: [opened, synchronize, reopened]
     push:
         branches: '**'
-        types: [created, updated, reopened, synchronize]
 jobs:
     call-tests:
         uses: ./.github/workflows/testsbuild.yml
