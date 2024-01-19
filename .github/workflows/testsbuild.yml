@@ -32,5 +32,4 @@ jobs:
           name: dependency-check-report
           path: reports
       - name: DisplayDependencyCheckResults
-        run: |
-          cat dependency-check-report.json
+        run: "ls -al; ls -al /github"
