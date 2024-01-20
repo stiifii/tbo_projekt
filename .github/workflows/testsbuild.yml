@@ -33,8 +33,7 @@ jobs:
       - name: Run Bandit
         id: RunBandit
         run: |
-          output=$(bandit -r .)
-          echo "::set-output name=output::$output"
+         bandit -r . >> $GITHUB_OUTPUT
       - name: Display Bandit Results
         run: |
           echo "${{ steps.RunBandit.outputs.output }}"
