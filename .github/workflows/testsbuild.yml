@@ -40,7 +40,7 @@ jobs:
           echo "${{ steps.RunBandit.outputs.output }}"
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.10.0
-      - Build image:
+      - name: Build image
         run: docker-compose up -d
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.10.0
