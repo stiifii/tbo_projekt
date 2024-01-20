@@ -31,7 +31,14 @@ jobs:
       - name: Install Bandit
         run: pip install bandit
       - name: Run Bandit
-        run: bandit -r .
+        id: RunBandit
+        run: |
+          output=$(bandit -r .)
+          echo "::set-output name=output::$output"
+      - name: Display Bandit Results
+        run: |
+          echo "${{ steps.RunBandit.outputs.output }}"
       - name: check the files system
         run: |
           ls -l
+        
