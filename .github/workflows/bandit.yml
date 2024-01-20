@@ -1,0 +1,19 @@
+name: Dependency-Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+    Bandit:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+            uses: actions/checkout@v2
+            - name: Install Bandit
+            run: pip install bandit
+            - name: Run Bandit
+            id: RunBandit
+            run: bandit -r project/
+        
