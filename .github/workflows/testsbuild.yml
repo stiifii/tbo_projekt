@@ -41,7 +41,6 @@ jobs:
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.10.0
       - Build image:
-        uses: run-App
         run: docker-compose up -d
       - name: ZAP Scan
         uses: zaproxy/action-baseline@v0.10.0
