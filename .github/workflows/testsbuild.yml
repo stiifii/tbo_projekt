@@ -33,7 +33,7 @@ jobs:
       - name: Run Bandit
         id: RunBandit
         run: |
-          echo output=$(bandit -r .) >> $GITHUB_OUTPUT
+          echo output=$(bandit -r project/) >> $GITHUB_OUTPUT
 
       - name: Display Bandit Results
         run: |
