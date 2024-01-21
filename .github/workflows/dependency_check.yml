@@ -18,3 +18,9 @@ jobs:
           project: ${{ github.repository }}
           path: '.'
           format: 'HTML'
+          out: 'reports'
+      - name: Upload results
+        uses: actions/upload-artifact@master
+        with:
+          name: DependencyCheck
+          path: ${{github.workspace}}/reports
