@@ -48,7 +48,8 @@ class BookTestCase(unittest.TestCase):
         with app.app_context():
             db.session.add(book)
             db.session.commit()
-            self.assertRaises(AssertionError, self.assertEqual, book.name, '<script>alert("XSS Attack!");</script>')
+            with self.assertRaises(AssertionError):
+                self.assertRaises(AssertionError, self.assertEqual, book.name, '<script>alert("XSS Attack!");</script>')
 
 
 
