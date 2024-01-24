@@ -1,7 +1,12 @@
 version: '3.8'
 
 services:
-  myapp:
-    build: .
+  sqli:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    depends_on:
+      - postgres
+      - redis
     ports:
-      - "80:5000"
+      - 8080:8080
