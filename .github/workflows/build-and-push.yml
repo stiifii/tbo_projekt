@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/tbo_projekt:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/tbo_projekt:beta
