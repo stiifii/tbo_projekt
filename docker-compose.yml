@@ -5,8 +5,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.app
-    depends_on:
-      - postgres
-      - redis
     ports:
       - 8080:8080
