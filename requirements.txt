@@ -16,3 +16,6 @@ pyyaml==3.13
 trafaret-config==2.0.2
 trafaret==1.2.0
 yarl==1.3.0               # via aiohttp
+requests==2.27.1
+rich==11.0.0
+lxml==4.6.0
