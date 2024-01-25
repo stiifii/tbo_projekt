@@ -4,7 +4,7 @@ from project.loans.models import Loan
 from project.loans.forms import CreateLoan
 from project.books.models import Book
 from project.customers.models import Customer
-
+from sqlalchemy import text
 
 # Blueprint for loans
 loans = Blueprint('loans', __name__, template_folder='templates', url_prefix='/loans')
@@ -220,3 +220,13 @@ def get_book_details(book_name):
             # Book not found in both "loans" and "books" databases
             print('Book not found')
             return jsonify({'error': 'Book not found'}), 404
+
+
+@loans.route('/books/details_vuln/<string:book_name>', methods=['GET'])
+def get_book_vuln(book_name):
+    vuln = "SELECT * FROM books WHERE name = '"+book_name+""
+    with db.engine.connect() as connection:
+        result = connection.execute(text(vuln), {"book_name": book_name}).fetchone()
+
+    return str(result)
+
