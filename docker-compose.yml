@@ -4,6 +4,6 @@ services:
   sqli:
     build:
       context: .
-      dockerfile: Dockerfile.app
+      dockerfile: Dockerfile
     ports:
       - 80:8080
